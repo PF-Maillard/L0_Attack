@@ -1,4 +1,30 @@
-###License
+# Minimal $L_0$ attack
+
+## About
+
+
+This repository contains the implementation code for the "Minimal Adversarial Attack on the $L_0$ Norm," authored by Pierre-François Maillard. The technique focuses on generating adversarial image examples while altering the fewest possible pixels with a low computation time. It also features comparisons with JSMA and CW-$L_0$ attacks across the MNIST, CIFAR10, and GTSRB datasets
+
+Note the utilization of the following repository: 
+- torchattacks: https://github.com/Harry24k/adversarial-attacks-pytorch
+- robustbench: https://robustbench.github.io/
+- Carlini Git: https://github.com/carlini/nn_robust_attacks
+- GTSRB model: https://www.kaggle.com/code/chibani410/gtsrb-99-test-accuracy-pytorch
+
+## Procedure
+
+
+You must manually download the GTSRB dataset and place it in the "data" folder, renaming it to "Signal". The dataset is available here: https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign.
+
+Included are three primary notebooks:
+- BenchmarkCifar10.ipynb
+- BenchmarkMNIST.ipynb
+- BenchmarkSignal.ipynb
+
+These notebooks are designed to automatically fetch the necessary libraries, allowing for use without any additional prerequisites.
+
+
+## Licenses
 
 This project is licensed under the MIT License for the majority of its content, with specific portions covered under separate licenses as detailed below.
 
