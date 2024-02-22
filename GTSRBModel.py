@@ -49,18 +49,18 @@ def ImportData(TestSize, Dim):
 
     #Picture normalization
     AllTransforms = Compose([
-    #ColorJitter(brightness=1.0, contrast=0.5, saturation=1, hue=0.1),
-    #RandomEqualize(0.4),
-    #AugMix(),
-    #RandomHorizontalFlip(0.3),
-    #RandomVerticalFlip(0.3),
-    #GaussianBlur((3,3)),
-    #RandomRotation(30),
+    ColorJitter(brightness=1.0, contrast=0.5, saturation=1, hue=0.1),
+    RandomEqualize(0.4),
+    AugMix(),
+    RandomHorizontalFlip(0.3),
+    RandomVerticalFlip(0.3),
+    GaussianBlur((3,3)),
+    RandomRotation(30),
     Resize([Dim,Dim]),
     ToTensor(),
     ])
 
-    dataset = GTSRB(root='SignalsData/Signal',split="train")
+    dataset = GTSRB(root='data/Signal',split="train")
     TrainDataSet, ValidationDataset = train_test_split(dataset,train_size=0.8)
     
     TrainDataSet.dataset.transform = AllTransforms

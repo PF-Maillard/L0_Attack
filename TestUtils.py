@@ -8,6 +8,26 @@ import DefaultModel as Util
 import CW_L0
 
 
+def SaveImages(MyPath, ImagesData, y):
+    for i, tensor in enumerate(ImagesData):
+        Path = MyPath + "image_" + str(i) + "_" + str(y[i]) + ".png"
+        save_image(tensor, Path)
+
+def SaveJSMA(theta, gamma, Model, X, y, Device, MyPath):
+    Data = []
+    MyAtk = torchattacks.JSMA(Model, theta=theta, gamma=gamma)
+    AdvPFM = MyAtk(X, y)
+    for idx in range(len(X)):
+        TPred = y[idx:idx+1]
+        Ppre = Util.get_pred(Model, X[idx:idx+1], Device)
+        Apre = Util.get_pred(Model, AdvPFM[idx:idx+1], Device)
+        adv2 = Util.AddSecurity(X[idx:idx+1])
+        Spre = Util.get_pred(Model, adv2, Device) 
+        Norm = Util.CalculateNorms(TPred, Ppre, Apre, Spre, X[idx:idx+1], AdvPFM[idx:idx+1], 0, 0, 0, 0, 0)
+        Path = MyPath + "image_" + str(idx) + "_" + str(Norm[0]) + ".png"
+        save_image(AdvPFM[idx:idx+1], Path)
+    return [Data]
+
 def AttackNorms(Model, C, steps, lr, Coef, Activation, P, S, Init, X, y, Device):
     Data = []
     Images = []
@@ -56,7 +76,7 @@ def TestLoopC(Model, steps, lr, Coef, Activation, P, S, Init, X, y, Device, Star
 
 def TestJSMA(theta, gamma, Model, X, y, Device):
     Data = []
-    MyAtk = torchattacks.JSMA(Model, theta=1, gamma=1)
+    MyAtk = torchattacks.JSMA(Model, theta=theta, gamma=gamma)
     AdvPFM = MyAtk(X, y)
     for idx in range(len(X)):
         TPred = y[idx:idx+1]
@@ -103,20 +123,6 @@ def SaveLoopC(Model, steps, lr, Coef, Activation, P, S, Init, X, y, Device, Star
     for i, tensor in enumerate(ImagesData):
         Path = MyPath + "image_" + str(i) + "_" + str(NormsData[i][0]) + ".png"
         save_image(tensor, Path)
-        
-def SaveJSMA(Model, steps, lr, Coef, Activation, P, S, Init, X, y, Device, Start, End, Factor, MyPath):
-    Data = []
-    #MyAtk = torchattacks.JSMA(Model, theta=1, gamma=1)
-    #AdvPFM = MyAtk(X, y)
-    for idx in range(len(X)):
-        TPred = y[idx:idx+1]
-        Ppre = Util.get_pred(Model, X[idx:idx+1], Device)
-        Apre = Util.get_pred(Model, AdvPFM[idx:idx+1], Device)
-        adv2 = Util.AddSecurity(X[idx:idx+1])
-        Spre = Util.get_pred(Model, adv2, Device) 
-        Norm = Util.CalculateNorms(TPred, Ppre, Apre, Spre, X[idx:idx+1], AdvPFM[idx:idx+1], 0, 0, 0, 0, 0)
-        print(Norm)
-    return [Data]
         
 def SaveImages(MyPath, ImagesData, y):
     for i, tensor in enumerate(ImagesData):
