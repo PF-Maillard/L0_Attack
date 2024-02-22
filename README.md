@@ -1,9 +1,10 @@
-MIT License
+###License
 
-Copyright (c) 2024 Pierre-François MAILLARD
+This project is licensed under the MIT License for the majority of its content, with specific portions covered under separate licenses as detailed below.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The code located in [Sources/GTSRBModel.py] is licensed under the Apache License 2.0. A copy of this license can be found in the file [Sources/GTSRBModel-License.md] or at the official Apache 2.0 license website.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Code from [Sources/CW_L0.py] is licensed under the BSD 2-Clause License. A copy of this license is included in the file [Sources/CW_L0-License.md] or can be viewed at the Open Source Initiative website.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+For all other parts of the project not explicitly mentioned above, the MIT License applies. The full text of the MIT License can be found in the LICENSE.md file at the root of this project.
+
