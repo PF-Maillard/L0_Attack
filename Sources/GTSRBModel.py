@@ -85,7 +85,7 @@ def ImportData(TestSize, Dim):
     TrainLoader = torch.utils.data.DataLoader(dataset = TrainDataSet, batch_size = BatchSizeTrain, shuffle = True)
     ValidationLoader = torch.utils.data.DataLoader(dataset = ValidationDataset, batch_size = BatchSizeTrain, shuffle = True)
     
-    TestDataset = GTSRB(root='SignalsData/Signal',split='test',transform=AllTransforms)
+    TestDataset = GTSRB(root='data/Signal',split='test',transform=AllTransforms)
     TestLoader = torch.utils.data.DataLoader(dataset = TestDataset, batch_size = BatchSizeTest, shuffle = False)
     
     print(len(TrainDataSet))
