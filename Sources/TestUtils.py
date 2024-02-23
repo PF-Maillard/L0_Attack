@@ -3,9 +3,9 @@ import pandas as pd
 import torchattacks
 from torchvision.utils import save_image
 
-import Sources.Maillard
+import Sources.Maillard as Maillard
 import Sources.DefaultModel as Util
-import Sources.CW_L0
+import Sources.CW_L0 as CW_L0
 
 
 def SaveImages(MyPath, ImagesData, y):

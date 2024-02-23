@@ -61,8 +61,6 @@ def ImportData(TestSize, Dim):
     BatchSizeTrain = 64
     BatchSizeTest = TestSize
 
-    print(Dim)
-
     #Picture normalization
     AllTransforms = Compose([
     ColorJitter(brightness=1.0, contrast=0.5, saturation=1, hue=0.1),
@@ -87,10 +85,6 @@ def ImportData(TestSize, Dim):
     
     TestDataset = GTSRB(root='data/Signal',split='test',transform=AllTransforms)
     TestLoader = torch.utils.data.DataLoader(dataset = TestDataset, batch_size = BatchSizeTest, shuffle = False)
-    
-    print(len(TrainDataSet))
-    print(len(ValidationDataset))
-    print(len(TestDataset))
     
     return TrainLoader, ValidationLoader, TestLoader
 
