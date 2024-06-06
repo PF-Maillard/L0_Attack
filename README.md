@@ -3,7 +3,7 @@
 ## About
 
 
-This repository contains the implementation code for the "Minimal Adversarial Attack on the $L_0$ Norm," authored by Pierre-François Maillard. The technique focuses on generating adversarial image examples while altering the fewest possible pixels with a low computation time. It also features comparisons with JSMA and CW-$L_0$ attacks across the MNIST, CIFAR10, and GTSRB datasets
+This repository contains the implementation code for the "Minimal Adversarial Attack on the $L_0$ Norm,". The technique focuses on generating adversarial image examples while altering the fewest possible pixels with a low computation time. It also features comparisons with JSMA and CW-$L_0$ attacks across the MNIST, CIFAR10, and GTSRB datasets
 
 Note the utilization of the following repository: 
 - torchattacks: https://github.com/Harry24k/adversarial-attacks-pytorch
