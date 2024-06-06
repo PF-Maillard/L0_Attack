@@ -3,7 +3,7 @@ import pandas as pd
 import torchattacks
 from torchvision.utils import save_image
 
-import Sources.Maillard as Maillard
+import Sources.NewAttack as NewAttack
 import Sources.DefaultModel as Util
 import Sources.CW_L0 as CW_L0
 
@@ -31,7 +31,7 @@ def SaveJSMA(theta, gamma, Model, X, y, Device, MyPath):
 def AttackNorms(Model, C, steps, lr, Coef, Activation, P, S, Init, X, y, Device):
     Data = []
     Images = []
-    atk = Maillard.PFM(Model, c=C, steps=steps, lr=lr, Coef=Coef, Activation=Activation, Prob = P, Similarity = S, Init=Init)
+    atk = NewAttack.NewAttack(Model, c=C, steps=steps, lr=lr, Coef=Coef, Activation=Activation, Prob = P, Similarity = S, Init=Init)
     AdvPFM = atk(X, y)
     for idx in range(len(X)):
         TPred = y[idx:idx+1]
